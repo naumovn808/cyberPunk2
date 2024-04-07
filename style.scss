@@ -27,12 +27,6 @@
     --text-yellow: #f8f200;
     --bg-yellow: #f8f200;
     --bg-black: #000;
-
-    //breakpoints
-
-    --mobile: 320px;
-    --tablet: 1024px;
-    --desctop: 1920px;
 }
 
 * {
@@ -49,9 +43,17 @@ body {
 .container {
     padding: 0 12px;
     margin: 0 auto;
+    max-width: 1920px;
+    width: 90%;
+
+    @media (min-width: 1024px) {
+        padding: 0 120px;
+        width: 80%;
+    }
 }
 
 .header {
+    width: 100%;
     background-image: url(./images/header-bg.jpg);
     background-position: center;
     background-size: cover;
@@ -61,6 +63,20 @@ body {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+
+    @media (min-width: 400px) {
+        background-image: url(./images/header-bg-tablet.jpg);
+        min-height: 1000px;
+    }
+
+    @media (min-width: 1024px) {
+        background-image: url(./images/header-bg-desctop.jpg);
+        min-height: 1000px;
+    }
+
+    @media (min-width: 1920px) {
+        align-items: center;
+    }
 }
 
 .nav {
@@ -73,11 +89,25 @@ body {
     align-items: center;
     margin: 0 auto;
 
+    @media (min-width: 500px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     &__icons {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        max-width: 380px;
+    }
+
+    &__img {
+        width: 200px;
+
+        @media (min-width:1024px) {
+            width: 296px;
+        }
     }
 }
 
@@ -98,6 +128,12 @@ body {
         text-align: center;
         color: #000;
         margin-bottom: 25px;
+
+        @media (min-width:780px) {
+            font-size: 62px;
+            max-width: 624px;
+
+        }
     }
 
     &__btn {
@@ -113,8 +149,37 @@ body {
         cursor: pointer;
         transition: opacity, 0.5s;
 
+        @media (min-width:780px) {
+            font-size: 24px;
+            padding: 20px 50px;
+        }
+
         &:hover {
             opacity: 0.8;
         }
+    }
+
+    @media (min-width:500px) {
+        margin-bottom: 0;
+        margin-right: 35px;
+        clip-path: polygon(9% 1%, 100% 0, 100% 79%, 89% 100%, 0% 100%, 0% 18%);
+    }
+
+    @media (min-width:1024px) {
+        margin-right: 320px;
+        padding: 70px;
+    }
+    @media (min-width:1920px) {
+       margin-left: 900px;
+    }
+}
+
+.nav__icon img {
+    width: 25px;
+    height: 25px;
+
+    @media (min-width:1024px) {
+        width: 30px;
+        height: 30px;
     }
 }
